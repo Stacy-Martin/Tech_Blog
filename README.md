@@ -9,22 +9,28 @@
   - [Tech Blog](#Tech_Blog)
   - [Description](#description)
   - [Table of Contents](#table-of-contents)
-  - [Installation](#installation)
+  - [Installation and Useage](#installation)
   - [Usage](#usage)
   - [License](#license)
   - [Contributions](#contributions)
   - [Questions](#questions)
   - [Preview](#preview)
 
-## Installation
-To install necessary dependencies and initialize the database, run the following command:
+## Installation and Useage
+To install necessary dependencies, execute a `npm init -y` and `npm install`, then run npm install of the following:
+
 ~~~
-`npm init -y`
-`npm install`
-`npm install inquirer`
-`npm install mysql`
-`node ./index.js` 
+sequelize
+dotenv
+express
+mysql2
+express-session
+express-handlebars
+Bcrypt
+connect-session-sequelize
 ~~~
+
+Initialize your session by running `node ./index.js`  and `npm start`.  
 
 ## Usage
 
