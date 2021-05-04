@@ -6,7 +6,7 @@
  Writing about tech is becoming an important part of networking, which is crucial to a career in software development.  This app is a CMS-style tech blog site where developers can create, read, and/or comment on posts. It is designed to be a hub where users can stay up-to-date in the tech world and its' ever changing advancements and technologies!  
 
 ## Table of Contents
-  - [Employee Tracker](#Tech_Blog)
+  - [Tech Blog](#Tech_Blog)
   - [Description](#description)
   - [Table of Contents](#table-of-contents)
   - [Installation](#installation)
