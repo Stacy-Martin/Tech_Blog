@@ -1,12 +1,12 @@
 const newFormHandler = async (event) => {
   event.preventDefault();
   console.log('function called')
-  const name = document.querySelector('#post-id').value;
+  const title = document.querySelector('#post-name').value;
   const body = document.querySelector('#post-body').value;
-  if (name && body) {
+  if (title && body) {
     const response = await fetch(`/api/posts`, {
       method: 'POST',
-      body: JSON.stringify({ name, body }),
+      body: JSON.stringify({ title, body }),
       headers: {
         'Content-Type': 'application/json',
       },
@@ -38,6 +38,6 @@ document
   // console.log(document.querySelector('.new-post-form'))
   .addEventListener('submit', newFormHandler);
 
-// document
-//   .querySelector('.post-list')
-//   .addEventListener('click', delButtonHandler);
+document
+  .querySelector('.post-list')
+  .addEventListener('click', delButtonHandler);
