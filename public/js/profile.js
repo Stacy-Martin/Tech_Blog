@@ -1,14 +1,15 @@
 const newFormHandler = async (event) => {
   event.preventDefault();
 
-  const name = document.querySelector('#project-name').value.trim();
-  const needed_funding = document.querySelector('#project-funding').value.trim();
-  const description = document.querySelector('#project-desc').value.trim();
+  const name = document.querySelector('#post-name').value.trim();
+  // const needed_funding = document.querySelector('#project-funding').value.trim();
+  const body = document.querySelector('#post-body').value.trim();
 
-  if (name && needed_funding && description) {
-    const response = await fetch(`/api/projects`, {
+  // was   if (name && needed_funding && body) {
+  if (name && body) {
+    const response = await fetch(`/api/posts`, {
       method: 'POST',
-      body: JSON.stringify({ name, needed_funding, description }),
+      body: JSON.stringify({ name, body }),
       headers: {
         'Content-Type': 'application/json',
       },
@@ -40,6 +41,7 @@ const delButtonHandler = async (event) => {
 
 document
   .querySelector('.new-post-form')
+  console.log(document.querySelector('.new-post-form'))
   .addEventListener('submit', newFormHandler);
 
 document

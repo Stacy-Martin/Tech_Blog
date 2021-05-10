@@ -14,11 +14,13 @@
   <div class="flex-column justify-space-around">
     <header class="display-flex justify-space-between align-center p-2">
       <h1>
-        {{!-- <span role="img" aria-label="money">💸</span> --}}
         <a href="/">Tech Blog!</a>
       </h1>
       <nav>
         <!-- Conditionally render login or logout links -->
+        {{!-- this is a handlebars block --}}
+        {{!-- If logged in render the profile page, else render the login page, close the 
+        block with a /if --}}
         {{#if logged_in}}
         <a href="/profile">profile</a> |
         <button class="no-button" id="logout">logout</button>
@@ -29,6 +31,7 @@
     </header>
     <main class="container container-fluid mt-5">
       <!-- Render the sub layout -->
+      {{!-- renders the posts from the blog --}}
       {{{ body }}}
     </main>
     <footer>
@@ -37,6 +40,7 @@
   </div>
 
   <!-- Render script for logged in users only -->
+  {{!-- if logged in, render the logout button --}}
   {{#if logged_in}}
   <script src="./js/logout.js"></script>
   {{/if}}
