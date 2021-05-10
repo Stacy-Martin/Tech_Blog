@@ -11,7 +11,8 @@ const commentHandler = async () =>{
       });
   
       if (response.ok) {
-        document.location.replace('/profile');
+          console.log("commentBody", commentBody)
+        // document.location.replace('/profile');
       } else {
         alert('Failed to create post');
       }
