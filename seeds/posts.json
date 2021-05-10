@@ -1,14 +1,14 @@
 [
   {
-    "name": "AI Breakthrough",
-    "description": "A robot fridge that senses your emotions."
+    "title": "title1",
+    "body": "A robot fridge that senses your emotions."
   },
   {
-    "name": "The Ultimate JS manual",
-    "description": "The number one resource to learn JavaScript!"
+    "title": "title2",
+    "body": "The number one resource to learn JavaScript!"
   },
   {
-    "name": "Roll 'Em Up",
-    "description": "A new gambling app where users bet in cryptocurrency."
+    "title": "title3",
+    "body": "A new gambling app where users bet in cryptocurrency."
   }
 ]

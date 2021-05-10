@@ -30,7 +30,7 @@ Bcrypt
 connect-session-sequelize
 ~~~
 
-Initialize your session by running `node ./index.js`  and `npm start`.  
+Initialize your session by running `node ./server.js`  and `npm start`.  
 
 ## Usage
 
