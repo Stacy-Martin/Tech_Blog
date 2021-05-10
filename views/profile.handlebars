@@ -1,7 +1,7 @@
 {{!-- if user logs in on main page this profile page will be rendered --}}
 <div class="row">
   <div class="col-auto">
-    {{!-- these expressions are being pulled from the profile.js page --}}
+    {{!-- these expressions are being pulled from the user model --}}
     <h2>Welcome, {{name}}!</h2>
   </div>
 </div>
@@ -10,14 +10,15 @@
   <div class="col-md-6">
     <h3>Create a New Post:</h3>
 
+    {{!-- this is where the event listener in the profile.js page refers to --}}
     <form class="form new-post-form onSubmit='newFormHandler()' ">
       <div class="form-group">
         <label for="post-name">Title:</label>
         <input class="form-input" type="text" id="post-name" name="post-name" />
       </div>
       <div class="form-group">
-        <label for="post-desc">Description:</label>
-        <textarea class="form-input" id="post-desc" name="post-desc"></textarea>
+        <label for="post-body">Body:</label>
+        <textarea class="form-input" id="post-body" name="post-body"></textarea>
       </div>
       <div class="form-group">
         <button type="submit" class="btn btn-primary">Create</button>
@@ -25,10 +26,11 @@
     </form>
   </div>
 
+{{!-- this is a handlebars block --}}
+{{!-- TODO: UNDERSTAND THIS BLOCK:  --}}
   {{#if posts.length}}
   <div class="col-md-6 post-list">
     <h3>Current Posts:</h3>
-
     {{#each posts as |post|}}
     <div class="row mb-2">
       <div class="col-md-8">
