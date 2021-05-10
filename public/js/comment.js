@@ -2,7 +2,7 @@ const commentHandler = async () =>{
     // event.preventDefault();
     const commentBody = document.querySelector("#commentBody").value
     const postId = parseInt(document.querySelector(".singlePost").dataset.id);
-    console.log(commentBody)
+    console.log({body: commentBody, post_id: postId});
     const response = await fetch(`/api/comments`, {
         method: 'POST',
         body: JSON.stringify({body: commentBody, post_id: postId}),
@@ -13,7 +13,7 @@ const commentHandler = async () =>{
   
       if (response.ok) {
           console.log("commentBody", commentBody)
-        document.location.replace('/profile');
+        // document.location.replace('/profile');
       } else {
         alert('Failed to post comment');
       }
