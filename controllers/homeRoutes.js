@@ -31,7 +31,7 @@ console.log(post),
   }
 });
 
-// this is where the route redirects to to show a single post
+// this is where the route redirects to to show a single post and its associated comments
 router.get('/post/:id', async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
@@ -40,19 +40,27 @@ router.get('/post/:id', async (req, res) => {
           model: User,
           attributes: ['name'],
         },
+        {
+          model: Comment,
+          include: [{model: User}],
+          attributes: ['body', 'user_id']
+        }
       ],
     });
-
     const post = postData.get({ plain: true });
-
+    console.log("+++++++++++++++++++++++++++")
+    console.log(post);
     res.render('post', {
       ...post,
       logged_in: req.session.logged_in
     });
   } catch (err) {
+    console.log(err)
     res.status(500).json(err);
   }
 });
+
+
 
 // Use withAuth middleware to prevent access to route
 router.get('/profile', withAuth, async (req, res) => {

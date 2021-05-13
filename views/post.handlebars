@@ -1,3 +1,4 @@
+{{!-- SINGLE POST PAGE --}}
 {{!-- this is the page that is rendered when clicking on a single post --}}
 {{!-- this data-id is the post id, this is how to parse the post_id to the HTML --}}
 <div class="text-center singlePost" data-id={{id}}>
@@ -14,6 +15,8 @@
   <p>
     <textarea id="commentBody"></textarea>
     <button class="btn btn-primary comment-btn">Comment</button>
+    <button class="btn btn-sm btn-danger" data-id="{{post.id}}">Delete</button>
+    <button class="btn btn-sm editButton" data-id="{{post.id}}">Edit</button>
   </p>
 </div>
 
