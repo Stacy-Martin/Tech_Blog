@@ -3,6 +3,8 @@ const { User } = require('../../models');
 
 // CREATE NEW USER ROUTE 
 router.post('/', async (req, res) => {
+  console.log(req.body)
+  console.log("++++++++++++++++++++++++++++")
   try {
     const userData = await User.create(req.body);
     req.session.save(() => {

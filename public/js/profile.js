@@ -19,19 +19,19 @@ const newFormHandler = async (event) => {
   }
 };
 
-const editButtonHandler = async (event) => {
-  if (event.target.hasAttribute('data-id')) {
-    const id = event.target.getAttribute('data-id');
-    const response = await fetch(`/api/posts/${id}`, {
-      method: 'PUT',
-    });
-    if (response.ok) {
-      document.location.replace('/editPost');
-    } else {
-      alert('Failed to update post');
-    }
-  }
-};
+// const editButtonHandler = async (event) => {
+//   if (event.target.hasAttribute('data-id')) {
+//     const id = event.target.getAttribute('data-id');
+//     const response = await fetch(`/api/posts/${id}`, {
+//       method: 'PUT',
+//     });
+//     if (response.ok) {
+//       document.location.replace('/editPost');
+//     } else {
+//       alert('Failed to update post');
+//     }
+//   }
+// };
 
 const delButtonHandler = async (event) => {
   if (event.target.hasAttribute('data-id')) {
@@ -52,9 +52,9 @@ document
   // console.log(document.querySelector('.new-post-form'))
   .addEventListener('submit', newFormHandler);
 
-document
-  .querySelector('.post-list')
-  .addEventListener('click', editButtonHandler);
+// document
+//   .querySelector('.post-list')
+//   .addEventListener('click', editButtonHandler);
 
 document
   .querySelector('.post-list')
