@@ -9,8 +9,8 @@ async function editPostHandler(event) {
   const response = await fetch(`/api/posts/${id}`, {
     method: "PUT",
     body: JSON.stringify({
-      post_name,
-      post_text,
+      title: post_name,
+      body: post_text,
     }),
     headers: {
       "Content-Type": "application/json",
@@ -19,15 +19,15 @@ async function editPostHandler(event) {
   if (response.ok) {
     document.location.replace(`/post/${id}`);
   } else {
-    alert(response.statusText);
+    //alert(response.statusText);
   }
 }
 
 
 // character counter
-$(document).ready(function () {
-  $("input#post_name, textarea#post_text").characterCounter();
-});
+//$(document).ready(function () {
+ // $("input#post_name, textarea#post_text").characterCounter();
+//});
 
 document
   .querySelector("#submit-btn")

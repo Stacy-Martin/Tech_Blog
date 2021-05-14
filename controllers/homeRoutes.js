@@ -1,16 +1,16 @@
-const router = require('express').Router();
-// all model names need capital 
-const { Post, User, Comment } = require('../models');
-const withAuth = require('../utils/auth');
+const router = require("express").Router();
+// all model names need capital
+const { Post, User, Comments } = require("../models");
+const withAuth = require("../utils/auth");
 
-router.get('/', async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     // Get all posts and JOIN with user data
     const postData = await Post.findAll({
       include: [
         {
           model: User,
-          attributes: ['name'],
+          attributes: ["name"],
         },
       ],
     });
@@ -19,73 +19,93 @@ router.get('/', async (req, res) => {
     // this variable name is what is passed in handlebars, it is what the object
     // is read as also
     const post = postData.map((post) => post.get({ plain: true }));
-console.log(post),
-    // Pass serialized data and session flag into template
-    res.render('homepage', { 
-      post, 
-      // this is how they are checking if the user is logged in and able to comment
-      logged_in: req.session.logged_in 
-    });
+    console.log(post),
+      // Pass serialized data and session flag into template
+      res.render("homepage", {
+        post,
+        // this is how they are checking if the user is logged in and able to comment
+        logged_in: req.session.logged_in,
+      });
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
+router.get("/editPost/:id", async (req, res) => {
+
+  try {
+    const postData = await Post.findByPk(req.params.id, {
+      include: [
+        User
+      ],
+    });
+    const post = postData.get({ plain: true });
+    console.log("+++++++++++++++++++++++++++");
+    console.log(postData);
+    res.render("editPost", {
+      ...post,
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+}})
 // this is where the route redirects to to show a single post and its associated comments
-router.get('/post/:id', async (req, res) => {
+router.get("/post/:id", async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
       include: [
         User,
         {
-          model: Comment,
-          attributes: ['body', 'user_id']
+          model: Comments,
+          include: {
+            model: User,
+            attributes: ["id", "name", "email"]
+          },
         },
       ],
     });
     const post = postData.get({ plain: true });
-    console.log("+++++++++++++++++++++++++++")
+    console.log("+++++++++++++++++++++++++++");
     console.log(post);
-    res.render('post', {
+    res.render("post", {
       ...post,
-      logged_in: req.session.logged_in
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
-    console.log(err)
+    console.log(err);
     res.status(500).json(err);
   }
 });
 
-
-
 // Use withAuth middleware to prevent access to route
-router.get('/profile', withAuth, async (req, res) => {
+router.get("/profile", withAuth, async (req, res) => {
   try {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
-      attributes: { exclude: ['password'] },
+      attributes: { exclude: ["password"] },
       include: [{ model: Post }],
     });
 
     const user = userData.get({ plain: true });
 
-    res.render('profile', {
+    res.render("profile", {
       ...user,
-      logged_in: true
+      logged_in: true,
     });
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-router.get('/login', (req, res) => {
+router.get("/login", (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
-    res.redirect('/profile');
+    res.redirect("/profile");
     return;
   }
 
-  res.render('login');
+  res.render("login");
 });
 
 module.exports = router;

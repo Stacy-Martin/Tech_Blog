@@ -19,19 +19,13 @@ const newFormHandler = async (event) => {
   }
 };
 
-// const editButtonHandler = async (event) => {
-//   if (event.target.hasAttribute('data-id')) {
-//     const id = event.target.getAttribute('data-id');
-//     const response = await fetch(`/api/posts/${id}`, {
-//       method: 'PUT',
-//     });
-//     if (response.ok) {
-//       document.location.replace('/editPost');
-//     } else {
-//       alert('Failed to update post');
-//     }
-//   }
-// };
+const editButtonHandler = async (event) => {
+  if (event.target.hasAttribute('data-id')) {
+    const id = event.target.getAttribute('data-id');
+
+      document.location.replace(`/editPost/${id}`);
+  }
+};
 
 const delButtonHandler = async (event) => {
   if (event.target.hasAttribute('data-id')) {
@@ -49,13 +43,16 @@ const delButtonHandler = async (event) => {
 
 document
   .querySelector('.new-post-form')
-  // console.log(document.querySelector('.new-post-form'))
+  // console.log(document.querySelector('.new-post-form')) PascalCase CONSTANT_CASE 
   .addEventListener('submit', newFormHandler);
 
-// document
-//   .querySelector('.post-list')
-//   .addEventListener('click', editButtonHandler);
+let editBtn = document.querySelector('.editButton')
 
-document
-  .querySelector('.post-list')
-  .addEventListener('click', delButtonHandler);
+if(editBtn){
+  editBtn.addEventListener('click', editButtonHandler);
+}  
+let deleteBtn = document.querySelector('.deleteButton')
+if(deleteBtn){
+   deleteBtn.addEventListener('click', delButtonHandler);
+}
+ 

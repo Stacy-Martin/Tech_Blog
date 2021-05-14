@@ -7,23 +7,25 @@
   <p>Created by: {{user.name}} on {{format_date date_created}}</p>
     <span class="">{{body}}</span>
   <p>
-    <br>
-    <button class="btn btn-sm btn-danger deleteBtn" data-id="{{post.id}}">Delete</button>
-    <button class="btn btn-sm editBtn" data-id="{{post.id}}">Edit</button>
-    <br>
 </div>
 
 {{!-- TODO: Fix comment body to not show post body data--}}
-<div class="text-center postComments" data-id={{id}}>
-  <h4>Comments:</h4>
-  <p>{{id}} Created by: {{user.name}} on {{format_date date_created}}</p>
-    <span class="">{{comment.body}}</span>
-  <p>
-    <br>
-    <textarea id="commentBody"></textarea>
+
+<div class="text-center postComments">
+  <h4>Comments:</h4>    
+  <textarea id="commentBody"></textarea>
     <br>
     <button class="btn btn-sm commentBtn">Comment</button>
 </div>
+
+  {{#each comments as |comment|}}
+
+  <p>Created by: {{comment.user.name}} on {{format_date comment.date_created}}</p>
+    <span class="">{{comment.body}}</span>
+  <p>
+    <br>
+    {{else}}
+{{/each}}
 
 
   {{!-- <div class="text-center"> --}}

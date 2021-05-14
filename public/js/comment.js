@@ -1,6 +1,6 @@
 const commentHandler = async () =>{
     // event.preventDefault();
-    const commentBody = document.querySelector(".postComments").value
+    const commentBody = document.getElementById("commentBody").value
     const postId = parseInt(document.querySelector(".singlePost").dataset.id);
     console.log({body: commentBody, post_id: postId});
     const response = await fetch(`/api/comments`, {
@@ -10,18 +10,13 @@ const commentHandler = async () =>{
           'Content-Type': 'application/json',
         },
       });
-  
-      if (response.ok) {
-          console.log("commentBody", commentBody)
-        // document.location.replace('/profile');
-      } else {
-        alert('Failed to post comment');
-      }
+         document.location.reload();
+
     };
 
 
 document
-  .querySelector('.comment-btn')
+  .querySelector('.commentBtn')
   .addEventListener('click', commentHandler);
 
 
