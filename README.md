@@ -45,6 +45,6 @@ To contribute to this repository, fork it and submit a pull request for review.
 ## Preview
 
 For a video demo of this project, watch here:   
-[](https://evening-cliffs-47327.herokuapp.com/)
+https://evening-cliffs-47327.herokuapp.com/
 
 Thanks to my study buddies ;) teacher, and TA for technical assistance - and many others for encouragement! 
