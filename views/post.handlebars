@@ -15,13 +15,13 @@
   <h4>Comments:</h4>    
   <textarea id="commentBody"></textarea>
     <br>
-    <button class="btn btn-sm commentBtn">Comment</button>
+    <button class="btn btn-sm commentBtn">Submit</button>
 </div>
 
   {{#each comments as |comment|}}
 
-  <p>Created by: {{comment.user.name}} on {{format_date comment.date_created}}</p>
-    <span class="">{{comment.body}}</span>
+  <p class="commentSection text-center">Created by: {{comment.user.name}} on {{format_date comment.date_created}}</p>
+    <span class="commentBody text-center">{{comment.body}}</span>
   <p>
     <br>
     {{else}}
