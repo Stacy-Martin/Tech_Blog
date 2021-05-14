@@ -10,7 +10,6 @@
   - [Description](#description)
   - [Table of Contents](#table-of-contents)
   - [Installation and Useage](#installation)
-  - [Usage](#usage)
   - [License](#license)
   - [Contributions](#contributions)
   - [Questions](#questions)
@@ -32,11 +31,6 @@ connect-session-sequelize
 
 Initialize your session by running `node ./server.js`  and `npm start`.  
 
-## Usage
-
-Clone or download the project from Github to your local computer.  From the project directory execute the following commands: 
-XXXXXXXXXXXXX
-
 ## License 
 This project is licensed under the [License: Unlicense](http://unlicense.org/) license.
 
@@ -51,6 +45,6 @@ To contribute to this repository, fork it and submit a pull request for review.
 ## Preview
 
 For a video demo of this project, watch here:   
-XXXXXXXXXXX
+[](https://evening-cliffs-47327.herokuapp.com/)
 
 Thanks to my study buddies ;) teacher, and TA for technical assistance - and many others for encouragement! 
